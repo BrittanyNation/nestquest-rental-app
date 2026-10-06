@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Listing {
+  id           Int      @id @default(autoincrement())
+  title        String
+  description  String
+  price        Int
+  beds         Int
+  baths        Float
+  sqft         Int
+  address      String
+  city         String
+  state        String
+  zip          String
+  lat          Float
+  lng          Float
+  propertyType String
+  imageUrl     String
+  amenities    String   @default("")
+  available    Boolean  @default(true)
+  createdAt    DateTime @default(now())
+}
